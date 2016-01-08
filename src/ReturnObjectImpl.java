@@ -31,7 +31,6 @@ public class ReturnObjectImpl implements ReturnObject {
     }
 
     public Object getReturnValue(){
-        //I think this is what is needed for now
         return this;
     }
 
