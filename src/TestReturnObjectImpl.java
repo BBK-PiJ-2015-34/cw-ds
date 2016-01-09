@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Created by davidwright on 08/01/2016.
  */
@@ -52,5 +54,18 @@ public class TestReturnObjectImpl {
         ReturnObject ro5 = new ReturnObjectImpl("Hello World");
         System.out.println(ro5.getError());
         System.out.println(ro5.getReturnValue().toString() + " - returned");
+        System.out.println();
+
+        System.out.println("Test 06");
+        ReturnObject ro6 = new ReturnObjectImpl(3.142);
+        System.out.println(ro6.getError());
+        System.out.println(ro6.getReturnValue().toString() + " - returned");
+        System.out.println();
+
+        System.out.println("Test 07");
+        int[] anArray = {45, 7, 9, 4};
+        ReturnObject ro7 = new ReturnObjectImpl(anArray);
+        System.out.println(ro7.getError());
+        System.out.println(Arrays.toString((int[])ro7.getReturnValue()) + " - returned");
     }
 }
