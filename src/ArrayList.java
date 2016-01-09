@@ -43,11 +43,25 @@ public class ArrayList implements List {
     public ReturnObject remove(int index) {
         if(isEmpty()){
             return new ReturnObjectImpl(ErrorMessage.EMPTY_STRUCTURE);
+        } else if(index < 0 || index >= size()) {
+            return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
         } else {
-            //TODO - need to implement deleting and copy elements to new array
-            return new ReturnObjectImpl(list[index]);
+            ReturnObject ro = new ReturnObjectImpl(list[index]);
+            Object[] tmpArrayList = new Object[size()-1];
+            int listIndex = 0;
+            for (int i = 0; i < size(); i++) {
+                if(index == i){
+                    continue;
+                } else {
+                    tmpArrayList[listIndex] = list[i];
+                    listIndex++;
+                }
+            }
+            list = tmpArrayList;
+            return ro;
         }
     }
+
 
     @Override
     public ReturnObject add(int index, Object item) {
@@ -56,7 +70,18 @@ public class ArrayList implements List {
         } else if(index < 0 || index >= size()){
             return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
         } else {
-            //TODO - need implement adding item at index and copying to new array
+            Object[] tmpArrayList = new Object[size()+1];
+            int listIndex = 0;
+            for (int i = 0; i < size()+1; i++) {
+                if(index == i){
+                    tmpArrayList[i] = item;
+                } else {
+                    tmpArrayList[i] = list[listIndex];
+                    listIndex++;
+                }
+
+            }
+            list = tmpArrayList;
             return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
         }
     }
@@ -70,7 +95,12 @@ public class ArrayList implements List {
             list[0] = item;
             return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
         } else {
-            //TODO - need implement copying array and adding item at end
+            Object[] tmpArrayList = new Object[size()+1];
+            for (int i = 0; i < size(); i++) {
+                tmpArrayList[i] = list[i];
+            }
+            tmpArrayList[size()] = item;
+            list = tmpArrayList;
             return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
         }
     }
