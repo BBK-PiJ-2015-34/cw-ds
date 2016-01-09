@@ -5,8 +5,6 @@ import java.util.Arrays;
  */
 public class TestReturnObjectImpl {
 
-    private ReturnObject ro;
-
 
     public static void main(String[] args) {
         TestReturnObjectImpl troi = new TestReturnObjectImpl();
@@ -15,12 +13,12 @@ public class TestReturnObjectImpl {
 
     public void launch(){
         System.out.println("Test 01");
-        ro = new ReturnObjectImpl(ErrorMessage.NO_ERROR);
+        ReturnObject ro = new ReturnObjectImpl(ErrorMessage.NO_ERROR);
         System.out.println(ro.getError());
         if (ro.hasError()){
             System.out.println("No value returned");
         } else {
-            System.out.printf(ro.getReturnValue().toString() + " - returned");
+            System.out.printf(ro.getReturnValue() + " - returned");
         }
         System.out.println();
 

@@ -16,12 +16,8 @@ public class ReturnObjectImpl implements ReturnObject {
     }
 
     public ReturnObjectImpl(ErrorMessage errorMessage){
-        if(errorMessage == ErrorMessage.NO_ERROR || errorMessage == null){
-            this.errorMessage = ErrorMessage.INVALID_ARGUMENT;
-        } else {
             this.errorMessage = errorMessage;
-        }
-        returnValue = null;
+            returnValue = null;
     }
     @Override
     public boolean hasError(){
