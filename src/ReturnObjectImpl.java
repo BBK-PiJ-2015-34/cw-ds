@@ -7,7 +7,8 @@ public class ReturnObjectImpl implements ReturnObject {
 
     public ReturnObjectImpl(Object returnValue){
         if (null == returnValue){
-            this.errorMessage = ErrorMessage.EMPTY_STRUCTURE;
+            this.errorMessage = ErrorMessage.INVALID_ARGUMENT;
+            this.returnValue = null;
         } else {
             errorMessage = ErrorMessage.NO_ERROR;
             this.returnValue = returnValue;
@@ -15,10 +16,10 @@ public class ReturnObjectImpl implements ReturnObject {
     }
 
     public ReturnObjectImpl(ErrorMessage errorMessage){
-        if(errorMessage != ErrorMessage.NO_ERROR){
-            this.errorMessage = errorMessage;
+        if(errorMessage == ErrorMessage.NO_ERROR || errorMessage == null){
+            this.errorMessage = ErrorMessage.INVALID_ARGUMENT;
         } else {
-            this.errorMessage = ErrorMessage.EMPTY_STRUCTURE;
+            this.errorMessage = errorMessage;
         }
         returnValue = null;
     }
