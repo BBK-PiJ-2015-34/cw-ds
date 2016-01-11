@@ -1,5 +1,8 @@
 /**
  * Created by david on 11/01/2016.
+ *
+ * This is an implementation of the ImprovedStack interface that works
+ * with an ArrayList
  */
 public class ImprovedArrayStackImpl implements ImprovedStack {
     private StackImpl internalstack;
