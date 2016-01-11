@@ -1,17 +1,17 @@
 /**
  * Created by david on 11/01/2016.
  */
-public class TestImprovedStackImpl {
+public class TestImprovedArrayStackImpl {
 
     public static void main(String[] args) {
-        TestImprovedStackImpl tisi = new TestImprovedStackImpl();
+        TestImprovedArrayStackImpl tisi = new TestImprovedArrayStackImpl();
         tisi.launch();
     }
 
     public void launch(){
 
 
-        ImprovedStackImpl arrayStack = new ImprovedStackImpl(new ArrayList());
+        ImprovedArrayStackImpl arrayStack = new ImprovedArrayStackImpl(new ArrayList());
         arrayStack.push("Hello");
         arrayStack.push("World");
         System.out.println("TESTING FOR AN ARRAY STACK");
@@ -38,17 +38,22 @@ public class TestImprovedStackImpl {
         arrayStack.push(1);
         arrayStack.push(2);
         arrayStack.push(3);
-        arrayStack.push(4);
+        arrayStack.push(1);
         arrayStack.push(5);
+        arrayStack.push(5);
+        arrayStack.push(6);
 
         ImprovedStack reverseArrayStack = arrayStack.reverse();
+        reverseArrayStack.remove(6);
         int size = reverseArrayStack.size();
         for (int i = 0; i < size; i++) {
             System.out.println(reverseArrayStack.pop().getReturnValue().toString());
         }
 
+
+
         System.out.println("TESTING FOR AN LINKED LIST STACK");
-        ImprovedStackImpl linkedStack = new ImprovedStackImpl(new LinkedList());
+        ImprovedArrayStackImpl linkedStack = new ImprovedArrayStackImpl(new LinkedList());
         linkedStack.push("Hello");
         linkedStack.push("World");
 

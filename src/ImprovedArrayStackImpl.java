@@ -1,11 +1,11 @@
 /**
  * Created by david on 11/01/2016.
  */
-public class ImprovedStackImpl implements ImprovedStack {
+public class ImprovedArrayStackImpl implements ImprovedStack {
     private StackImpl internalstack;
     private List list;
 
-    public ImprovedStackImpl(List list){
+    public ImprovedArrayStackImpl(List list){
         this.list = list;
         internalstack = new StackImpl(list);
     }
@@ -37,7 +37,7 @@ public class ImprovedStackImpl implements ImprovedStack {
 
     @Override
     public ImprovedStack reverse() {
-        ImprovedStack reverseStack = new ImprovedStackImpl(new ArrayList());
+        ImprovedStack reverseStack = new ImprovedArrayStackImpl(new ArrayList());
         for (int i = 0; i < internalstack.size(); i++) {
             reverseStack.push(list.get(i).getReturnValue());
         }
@@ -46,6 +46,16 @@ public class ImprovedStackImpl implements ImprovedStack {
 
     @Override
     public void remove(Object object) {
-
+        boolean found = true;
+        while (found == true) {
+            found = false;
+            for (int i = 0; i < list.size(); i++) {
+                Object currentObject = list.get(i).getReturnValue();
+                if(currentObject.equals(object)){
+                    list.remove(i);
+                    found = true;
+                }
+            }
+        }
     }
 }
