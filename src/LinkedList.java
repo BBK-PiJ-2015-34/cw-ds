@@ -1,5 +1,9 @@
 /**
  * Created by davidwright on 10/01/2016.
+ *
+ * LinkedList makes use of Node objects to store data
+ * and link to next node
+ *
  */
 public class LinkedList implements List {
 
