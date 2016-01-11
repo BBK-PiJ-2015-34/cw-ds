@@ -11,7 +11,7 @@ public class SampleableArrayListImpl extends ArrayList implements SampleableList
             SampleableList sample = new SampleableArrayListImpl();
 
             for (int i = 0; i < size(); i+=2) {
-                sample.add(get(i));
+                sample.add(get(i).getReturnValue());
             }
             return sample;
         }
