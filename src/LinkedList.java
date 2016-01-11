@@ -123,7 +123,7 @@ public class LinkedList implements List {
                 currentNode = currentNode.getNext();
             }
             currentNode.setNext(new Node(item));
-            //TODO - get to end of nodes then add node
+
         }
         return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
     }

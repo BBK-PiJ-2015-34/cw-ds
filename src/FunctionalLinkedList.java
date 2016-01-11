@@ -9,9 +9,9 @@ public class FunctionalLinkedList extends LinkedList implements FunctionalList {
         } else {
             ReturnObject ro = get(0);
             if (ro.hasError()){
-                return new ReturnObjectImpl(ro.getError());
+                return ro;
             } else {
-                return new ReturnObjectImpl(ro.getReturnValue());
+                return ro;
             }
         }
     }
